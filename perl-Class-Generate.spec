@@ -1,6 +1,6 @@
 %define module  Class-Generate
 %define name    perl-%{module}
-%define version 1.07
+%define version 1.08
 %define release %mkrel 1
 
 Name:           %{name}
