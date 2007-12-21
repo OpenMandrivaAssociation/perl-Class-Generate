@@ -15,6 +15,7 @@ Source:         http://www.cpan.org/modules/by-module/Class/%{module}-%{version}
 Buildrequires:  perl-devel
 %endif
 BuildArch:      noarch
+BuildRoot:      %{_tmppath}/%{name}-%{version}
 
 %description
 The Class::Generate package exports functions that take as arguments a class
