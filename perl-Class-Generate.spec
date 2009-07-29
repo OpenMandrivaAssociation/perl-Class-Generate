@@ -1,21 +1,21 @@
-%define module  Class-Generate
-%define name    perl-%{module}
-%define version 1.10
-%define release %mkrel 3
+%define upstream_name    Class-Generate
+%define upstream_version 1.10
 
-Name:           %{name}
-Version:        %{version}
-Release:        %{release}
-Summary:        Generate Perl class hierarchies
-License:        GPL or Artistic
-Group:          Development/Perl
-Url:            http://search.cpan.org/dist/%{module}
-Source:         http://www.cpan.org/modules/by-module/Class/%{module}-%{version}.tar.bz2
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
+Summary:    Generate Perl class hierarchies
+License:    GPL+ or Artistic
+Group:      Development/Perl
+Url:        http://search.cpan.org/dist/%{upstream_name}
+Source0:    http://www.cpan.org/modules/by-module/Class/%{upstream_name}-%{upstream_version}.tar.bz2
+
 %if %{mdkversion} < 1010
 Buildrequires:  perl-devel
 %endif
 BuildArch:      noarch
-BuildRoot:      %{_tmppath}/%{name}-%{version}
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 The Class::Generate package exports functions that take as arguments a class
@@ -32,7 +32,7 @@ the contract of object-oriented programming. I also wanted it to get out of my
 way when I asked.
 
 %prep
-%setup -q -n %{module}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 chmod 644 Changes README
 
 %build
@@ -54,5 +54,3 @@ rm -rf %{buildroot}
 %doc Changes README
 %{perl_vendorlib}/Class
 %{_mandir}/*/*
-
-
