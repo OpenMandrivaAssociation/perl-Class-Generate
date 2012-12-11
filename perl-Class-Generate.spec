@@ -1,21 +1,18 @@
 %define upstream_name    Class-Generate
 %define upstream_version 1.11
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 1
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	2
 
-Summary:    Generate Perl class hierarchies
-License:    GPL+ or Artistic
-Group:      Development/Perl
-Url:        http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/Class/%{upstream_name}-%{upstream_version}.tar.bz2
+Summary:	Generate Perl class hierarchies
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/Class/%{upstream_name}-%{upstream_version}.tar.bz2
 
-%if %{mdkversion} < 1010
-Buildrequires:  perl-devel
-%endif
+BuildRequires:  perl-devel
 BuildArch:      noarch
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 The Class::Generate package exports functions that take as arguments a class
@@ -36,21 +33,72 @@ way when I asked.
 chmod 644 Changes README
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
-%{__make} test
+make test
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
-%clean 
-rm -rf %{buildroot}
-
 %files 
-%defattr(-,root,root)
 %doc Changes README
 %{perl_vendorlib}/Class
 %{_mandir}/*/*
+
+
+%changelog
+* Thu Apr 28 2011 Guillaume Rousse <guillomovitch@mandriva.org> 1.110.0-1mdv2011.0
++ Revision: 659887
+- update to new version 1.11
+
+* Wed Jul 29 2009 Jérôme Quelin <jquelin@mandriva.org> 1.100.0-1mdv2011.0
++ Revision: 403012
+- rebuild using %%perl_convert_version
+
+* Wed Jul 23 2008 Thierry Vignaud <tv@mandriva.org> 1.10-3mdv2009.0
++ Revision: 241186
+- rebuild
+- kill re-definition of %%buildroot on Pixel's request
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+* Wed Aug 15 2007 Guillaume Rousse <guillomovitch@mandriva.org> 1.10-1mdv2008.0
++ Revision: 63923
+- update to new version 1.10
+
+* Sun Jul 01 2007 Guillaume Rousse <guillomovitch@mandriva.org> 1.09-1mdv2008.0
++ Revision: 46522
+- update to new version 1.09
+
+* Tue May 01 2007 Olivier Thauvin <nanardon@mandriva.org> 1.08-1mdv2008.0
++ Revision: 19794
+- 1.08
+
+
+* Wed Jan 17 2007 Guillaume Rousse <guillomovitch@mandriva.org> 1.07-1mdv2007.0
++ Revision: 109947
+- new version
+- Import perl-Class-Generate
+
+* Tue Aug 29 2006 Guillaume Rousse <guillomovitch@mandriva.org> 1.06-5mdv2007.0
+- Rebuild
+
+* Tue Dec 20 2005 Guillaume Rousse <guillomovitch@mandriva.org> 1.06-4mdk
+- spec cleanup
+- %%mkrel
+- better URL
+- rpmbuilupdate aware
+- fix doc files perms
+
+* Mon Dec 20 2004 Guillaume Rousse <guillomovitch@mandrake.org> 1.06-3mdk
+- fix buildrequires in a backward compatible way
+
+* Sun Aug 29 2004 Guillaume Rousse <guillomovitch@mandrake.org> 1.06-2mdk 
+- fix directory ownership (distlint)
+
+* Wed Mar 03 2004 Guillaume Rousse <guillomovitch@mandrake.org> 1.06-1mdk
+- first mdk release
+
