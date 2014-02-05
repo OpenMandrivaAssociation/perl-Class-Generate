@@ -1,15 +1,15 @@
 %define upstream_name    Class-Generate
-%define upstream_version 1.11
+%define upstream_version 1.14
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version %{upstream_version}
-Release:	2
+Release:	1
 
 Summary:	Generate Perl class hierarchies
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Class/%{upstream_name}-%{upstream_version}.tar.bz2
+Source0:	http://www.cpan.org/modules/by-module/Class/Class-Generate-%{upstream_version}.tar.gz
 
 BuildRequires:  perl-devel
 BuildArch:      noarch
@@ -101,4 +101,5 @@ make test
 
 * Wed Mar 03 2004 Guillaume Rousse <guillomovitch@mandrake.org> 1.06-1mdk
 - first mdk release
+
 
