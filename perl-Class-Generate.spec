@@ -12,6 +12,7 @@ Url:		http://search.cpan.org/dist/%{upstream_name}
 Source0:	http://www.cpan.org/modules/by-module/Class/Class-Generate-%{upstream_version}.tar.gz
 
 BuildRequires:  perl-devel
+BuildRequires: perl(Module::Build)
 BuildArch:      noarch
 
 %description
