@@ -1,15 +1,15 @@
 %define upstream_name    Class-Generate
-%define upstream_version 1.14
+%define upstream_version 1.18
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	3
+Version:	%{upstream_version}
+Release:	1
 
 Summary:	Generate Perl class hierarchies
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Class/Class-Generate-%{upstream_version}.tar.gz
+Url:		https://github.com/shlomif/perl-Class-Generate
+Source0:	https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/Class-Generate-%{upstream_version}.tar.gz
 
 BuildRequires:  perl-devel
 BuildRequires: perl(Module::Build)
