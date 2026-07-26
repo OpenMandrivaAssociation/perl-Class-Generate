@@ -1,15 +1,13 @@
 %define upstream_name    Class-Generate
-%define upstream_version 1.18
-
 Name:		perl-%{upstream_name}
-Version:	%{upstream_version}
-Release:	1
+Version:	1.18
+Release:	2
 
 Summary:	Generate Perl class hierarchies
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		https://github.com/shlomif/perl-Class-Generate
-Source0:	https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/Class-Generate-%{upstream_version}.tar.gz
+Source0:	https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/Class-Generate-%{version}.tar.gz
 
 BuildRequires:  perl-devel
 BuildRequires: perl(Module::Build)
@@ -30,7 +28,7 @@ the contract of object-oriented programming. I also wanted it to get out of my
 way when I asked.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 chmod 644 Changes README
 
 %build
@@ -56,9 +54,7 @@ perl Build.PL installdirs=vendor
 
 * Wed Jul 29 2009 Jérôme Quelin <jquelin@mandriva.org> 1.100.0-1mdv2011.0
 + Revision: 403012
-- rebuild using %%perl_convert_version
-
-* Wed Jul 23 2008 Thierry Vignaud <tv@mandriva.org> 1.10-3mdv2009.0
+- rebuild using %1.18 Wed Jul 23 2008 Thierry Vignaud <tv@mandriva.org> 1.10-3mdv2009.0
 + Revision: 241186
 - rebuild
 - kill re-definition of %%buildroot on Pixel's request
